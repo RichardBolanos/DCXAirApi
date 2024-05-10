@@ -1,0 +1,6 @@
+@DCXAirApi.Presentation_HostAddress = http://localhost:5217
+
+GET {{DCXAirApi.Presentation_HostAddress}}/api/Flight/one-way/
+Accept: application/json
+
+###

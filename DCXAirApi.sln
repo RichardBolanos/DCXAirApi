@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DCXAirApi.Presentation", "DCXAirApi.Presentation\DCXAirApi.Presentation.csproj", "{8BEE67D5-0945-47A7-AEA8-F0A0E19E8E79}"
+	ProjectSection(ProjectDependencies) = postProject
+		{346AEB8C-5377-4EA2-BE99-FD776649D894} = {346AEB8C-5377-4EA2-BE99-FD776649D894}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DCXAirApi.Application", "DCXAirApi.Application\DCXAirApi.Application.csproj", "{346AEB8C-5377-4EA2-BE99-FD776649D894}"
+	ProjectSection(ProjectDependencies) = postProject
+		{311C83E6-540D-4BC2-9B17-B0AA0C109E2C} = {311C83E6-540D-4BC2-9B17-B0AA0C109E2C}
+		{82B93F53-39B6-4504-8201-F1A4ABDDC6A6} = {82B93F53-39B6-4504-8201-F1A4ABDDC6A6}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DCXAirApi.Domain", "DCXAirApi.Domain\DCXAirApi.Domain.csproj", "{311C83E6-540D-4BC2-9B17-B0AA0C109E2C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DCXAirApi.Infrastructure", "DCXAirApi.Infrastructure\DCXAirApi.Infrastructure.csproj", "{82B93F53-39B6-4504-8201-F1A4ABDDC6A6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{311C83E6-540D-4BC2-9B17-B0AA0C109E2C} = {311C83E6-540D-4BC2-9B17-B0AA0C109E2C}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BEE67D5-0945-47A7-AEA8-F0A0E19E8E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BEE67D5-0945-47A7-AEA8-F0A0E19E8E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BEE67D5-0945-47A7-AEA8-F0A0E19E8E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BEE67D5-0945-47A7-AEA8-F0A0E19E8E79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{346AEB8C-5377-4EA2-BE99-FD776649D894}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{346AEB8C-5377-4EA2-BE99-FD776649D894}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{346AEB8C-5377-4EA2-BE99-FD776649D894}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{346AEB8C-5377-4EA2-BE99-FD776649D894}.Release|Any CPU.Build.0 = Release|Any CPU
+		{311C83E6-540D-4BC2-9B17-B0AA0C109E2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{311C83E6-540D-4BC2-9B17-B0AA0C109E2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{311C83E6-540D-4BC2-9B17-B0AA0C109E2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{311C83E6-540D-4BC2-9B17-B0AA0C109E2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82B93F53-39B6-4504-8201-F1A4ABDDC6A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82B93F53-39B6-4504-8201-F1A4ABDDC6A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82B93F53-39B6-4504-8201-F1A4ABDDC6A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82B93F53-39B6-4504-8201-F1A4ABDDC6A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD2D48DA-FF47-4131-AC3E-6427248206A1}
+	EndGlobalSection
+EndGlobal
