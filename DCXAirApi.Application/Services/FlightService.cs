@@ -1,6 +1,7 @@
 ﻿
 using DCXAirApi.Domain;
 using DCXAirApi.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 namespace DCXAirApi.Application
 
@@ -14,13 +15,11 @@ namespace DCXAirApi.Application
             _dbContext = dbContext;
         }
 
-        public async Task<Journey> GetOneWayFlights(string origin, string destination, string currency)
+        public Journey GetFlights(string origin, string destination, string currency)
         {
             // Consultar vuelos de solo ida desde el origen hasta el destino en la base de datos
-            var oneWayFlights = _dbContext.Flights
-                .Where(f => f.Origin == origin && f.Destination == destination)
-                .ToList();
-           
+            var oneWayFlights = _dbContext.Flights.Include(f => f.Transport).ToList();
+
 
             // Realizar la conversión de moneda si es necesario
             if (currency != "USD")
@@ -46,18 +45,31 @@ namespace DCXAirApi.Application
                     Origin = f.Origin,
                     Destination = f.Destination,
                     Price = f.Price,
-                    Transport = new Transport
+                    Transport = f.Transport != null ? new Transport
                     {
-                        FlightCarrier = f.Transport.FlightCarrier,
-                        FlightNumber = f.Transport.FlightNumber
+
+                        FlightCarrier = f.Transport.FlightCarrier ?? "",
+                        FlightNumber = f.Transport.FlightNumber ?? ""
+                    } : new Transport
+                    {
+                        TransportId = -1,
+                        FlightCarrier = "",
+                        FlightNumber = ""
                     }
                 }).ToList()
             };
-
             return journey;
-
         }
 
-        // Implementar otros métodos para manejar otras consultas y conversiones de moneda
+        public async Task<List<String>> GetCountries()
+        {
+            var uniqueOrigins = await _dbContext.Flights.Select(f => f.Origin).Distinct().ToListAsync();
+            var uniqueDestinations = await _dbContext.Flights.Select(f => f.Destination).Distinct().ToListAsync();
+
+            // Unir los países únicos de origen y destino y eliminar duplicados
+            var uniqueCountries = uniqueOrigins.Concat(uniqueDestinations).Distinct().ToList();
+
+            return uniqueCountries;
+        }
     }
 }

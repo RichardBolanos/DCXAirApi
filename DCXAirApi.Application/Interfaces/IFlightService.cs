@@ -4,7 +4,10 @@ namespace DCXAirApi.Application
 {
     public interface IFlightService
     {
-        Task<Journey> GetOneWayFlights(string origin, string destination, string currency);
+        Journey GetFlights(string origin, string destination, string currency);
+        Task<List<String>> GetCountries();
         // Otros métodos para manejar otras consultas y conversiones de moneda
     }
+
+
 }
