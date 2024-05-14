@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace DCXAirApi.Domain
+namespace DCXAirApi.Domain.Class
 {
     public class Graph
     {
@@ -80,7 +80,8 @@ namespace DCXAirApi.Domain
                     currentFlight = path.ContainsKey(currentFlight.Origin) ? path[currentFlight.Origin] : null;
                 }
             }
-            catch {
+            catch
+            {
                 return new List<Flight>();
             }
             return flightPath;

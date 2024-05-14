@@ -26,14 +26,14 @@ namespace DCXAirApi.Presentation.controllers
         [HttpPost("get-flights")]
         [SwaggerOperation(Summary = "Get one-way flights", Description = "Get flights from origin to destination.")]
         [SwaggerResponse(200, "Returns the list of flights", typeof(ApiResponse<Journey>))]
-        public IActionResult GetFlights([FromBody] FlightRequest data)
+        public async Task<IActionResult> GetFlights([FromBody] FlightRequest data)
         {
             var origin = data.Origin.ToUpper();
             var destination = data.Destination.ToUpper();
             var currency = data.Currency.ToUpper();
             var oneWay = data.OneWay;
 
-            var journeyResult = _flightService.GetFlights(origin, destination, currency);
+            var journeyResult = await _flightService.GetFlights(origin, destination, currency);
 
 
             if (journeyResult == null)

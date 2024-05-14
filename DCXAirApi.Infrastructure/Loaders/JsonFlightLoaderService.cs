@@ -1,5 +1,5 @@
 ﻿using DCXAirApi.Domain.Class;
-using DCXAirApi.Infrastructure.DbContext;
+using DCXAirApi.Infrastructure.DCXAirDbContext;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
