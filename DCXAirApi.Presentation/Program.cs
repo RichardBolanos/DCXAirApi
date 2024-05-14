@@ -5,7 +5,6 @@ using DCXAirApi.Infrastructure.DCXAirDbContext;
 using DCXAirApi.Infrastructure.Loaders;
 using DCXAirApi.Infrastructure.Logging;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 
 public class Startup

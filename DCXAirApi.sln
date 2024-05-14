@@ -21,6 +21,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DCXAirApi.Infrastructure", 
 		{311C83E6-540D-4BC2-9B17-B0AA0C109E2C} = {311C83E6-540D-4BC2-9B17-B0AA0C109E2C}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCXAirApi.NUnitTests", "DCXAirApi.NUnitTests\DCXAirApi.NUnitTests.csproj", "{BCB37256-4F37-4FAA-AB40-51D2267B666E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{311C83E6-540D-4BC2-9B17-B0AA0C109E2C} = {311C83E6-540D-4BC2-9B17-B0AA0C109E2C}
+		{8BEE67D5-0945-47A7-AEA8-F0A0E19E8E79} = {8BEE67D5-0945-47A7-AEA8-F0A0E19E8E79}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +49,10 @@ Global
 		{82B93F53-39B6-4504-8201-F1A4ABDDC6A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82B93F53-39B6-4504-8201-F1A4ABDDC6A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82B93F53-39B6-4504-8201-F1A4ABDDC6A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCB37256-4F37-4FAA-AB40-51D2267B666E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCB37256-4F37-4FAA-AB40-51D2267B666E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCB37256-4F37-4FAA-AB40-51D2267B666E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCB37256-4F37-4FAA-AB40-51D2267B666E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
