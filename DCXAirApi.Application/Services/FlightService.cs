@@ -1,21 +1,24 @@
-﻿
+﻿using DCXAirApi.Application.Interfaces;
 using DCXAirApi.Domain;
-using DCXAirApi.Infrastructure;
+using DCXAirApi.Domain.Class;
+using DCXAirApi.Infrastructure.DCXAirDbContext;
 using Microsoft.EntityFrameworkCore;
 
-namespace DCXAirApi.Application
+namespace DCXAirApi.Application.Services
 
 {
     public class FlightService : IFlightService
     {
         private readonly ApplicationDbContext _dbContext;
+        private readonly CurrencyConversionService _currencyConversionService;
 
-        public FlightService(ApplicationDbContext dbContext)
+        public FlightService(ApplicationDbContext dbContext, CurrencyConversionService currencyConversionService)
         {
             _dbContext = dbContext;
+            _currencyConversionService = currencyConversionService;
         }
 
-        public Journey GetFlights(string origin, string destination, string currency)
+        public async Task<Journey> GetFlights(string origin, string destination, string currency)
         {
             // Consultar vuelos de solo ida desde el origen hasta el destino en la base de datos
             var oneWayFlights = _dbContext.Flights.Include(f => f.Transport).ToList();
@@ -24,6 +27,7 @@ namespace DCXAirApi.Application
             // Realizar la conversión de moneda si es necesario
             if (currency != "USD")
             {
+                var result = await _currencyConversionService.ConvertCurrencyAsync("USD", currency);
                 // Lógica para convertir el precio de los vuelos a la moneda especificada
                 // (Por ejemplo, podrías llamar a un servicio de conversión de moneda externo)
                 // Aquí se asume que la conversión se realiza de manera síncrona para simplificar el ejemplo
@@ -61,7 +65,7 @@ namespace DCXAirApi.Application
             return journey;
         }
 
-        public async Task<List<String>> GetCountries()
+        public async Task<List<string>> GetCountries()
         {
             var uniqueOrigins = await _dbContext.Flights.Select(f => f.Origin).Distinct().ToListAsync();
             var uniqueDestinations = await _dbContext.Flights.Select(f => f.Destination).Distinct().ToListAsync();

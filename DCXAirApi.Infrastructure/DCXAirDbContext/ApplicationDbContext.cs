@@ -1,9 +1,9 @@
-﻿using DCXAirApi.Domain;
+﻿using DCXAirApi.Domain.Class;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using System.Reflection.Emit;
 
-namespace DCXAirApi.Infrastructure
+namespace DCXAirApi.Infrastructure.DCXAirDbContext
 {
     public class ApplicationDbContext : DbContext
     {

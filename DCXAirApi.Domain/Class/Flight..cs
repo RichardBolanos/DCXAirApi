@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DCXAirApi.Domain
+namespace DCXAirApi.Domain.Class
 {
     public class Flight
     {

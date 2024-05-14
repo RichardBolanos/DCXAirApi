@@ -1,7 +1,7 @@
 ﻿using Swashbuckle.AspNetCore.Annotations;
 using System.ComponentModel.DataAnnotations;
 
-namespace DCXAirApi.Domain
+namespace DCXAirApi.Domain.Class
 {
     [SwaggerSchema(Title = "Journey", Description = "Represents a journey with flights")]
     public class Journey

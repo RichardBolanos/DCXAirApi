@@ -1,11 +1,11 @@
-﻿using DCXAirApi.Domain;
+﻿using DCXAirApi.Domain.Class;
 
-namespace DCXAirApi.Application
+namespace DCXAirApi.Application.Interfaces
 {
     public interface IFlightService
     {
         Journey GetFlights(string origin, string destination, string currency);
-        Task<List<String>> GetCountries();
+        Task<List<string>> GetCountries();
         // Otros métodos para manejar otras consultas y conversiones de moneda
     }
 

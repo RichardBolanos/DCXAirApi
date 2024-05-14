@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DCXAirApi.Domain
+namespace DCXAirApi.Domain.Dto
 {
     public class ApiResponse<T>
     {
