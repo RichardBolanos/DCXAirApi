@@ -28,14 +28,17 @@ namespace DCXAirApi.Application.Services
             if (currency != "USD")
             {
                 var conversionRate = await _currencyConversionService.ConvertCurrencyAsync("USD", currency);
-                // Lógica para convertir el precio de los vuelos a la moneda especificada
-                // (Por ejemplo, podrías llamar a un servicio de conversión de moneda externo)
-                // Aquí se asume que la conversión se realiza de manera síncrona para simplificar el ejemplo
-                 // Supongamos una tasa de conversión fija para fines de demostración
-                foreach (var flight in oneWayFlights)
+                if (conversionRate != null)
                 {
-                    flight.Price *= conversionRate.Rate;
+                    foreach (var flight in oneWayFlights)
+                    {
+                        flight.Price *= conversionRate.Rate;
+                    }
+                } else
+                {
+                    throw new Exception("No se puede convertir a la divisa seleccionada");
                 }
+                
             }
 
             // Construir el objeto Journey con los vuelos obtenidos

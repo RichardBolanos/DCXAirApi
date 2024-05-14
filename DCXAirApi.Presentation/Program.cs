@@ -3,6 +3,7 @@ using DCXAirApi.Application.Services;
 using DCXAirApi.Domain.Dto;
 using DCXAirApi.Infrastructure.DCXAirDbContext;
 using DCXAirApi.Infrastructure.Loaders;
+using DCXAirApi.Infrastructure.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
@@ -37,6 +38,13 @@ public class Startup
         AddCorsPolicy(services);
     }
 
+    public void AddLogging(IServiceCollection services) {
+        services.AddLogging(builder =>
+        {
+            builder.AddProvider(new MySQLiteLoggerProvider());
+        });
+    }
+
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         if (env.IsDevelopment())
@@ -65,6 +73,7 @@ public class Startup
     {
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
+        services.AddDbContext<LoggingDbContext>();
     }
 
     private void AddControllersAndSwagger(IServiceCollection services)
